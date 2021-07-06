@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Vue.jsのツボとコツがゼッタイにわかる本の学習</title>
+</head>
+<body>
+  <div id="app">
+    <div v-show="show">
+      <p>コンソールで、app.show=true から app.show=false そして、app.show=trueの戻す</p>
+      <p>now1: "{{ now1()}}"</p><!--メソッド-->
+      <p v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+        メソッド、は描画されるたびに更新キャッシュ値がとりだされる。
+      </p>
+      <p>now2: "{{ now2 }}"</p><!--算出プロパティ-->
+      <p v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+        算出プロパティは、リアクティブデータdataが更新されると、キャッシュを捨てて再実行する。<br>つまり、時間が変わる</p>
+      </div>
+  </div>
+
+  <!-- No.1 複数のフィルターをつなげる
+  <h2>フィルター</h2>
+  <ul>
+    <li>フィルターは、テキストに出力する前に何らかの加工ができる</li>
+    <li>（例）例えば、1,280円のように、1280を代入するだけで、カンマで区切ったり、小数点以下を丸めたりできる</li>
+  </ul>
+  <h2>書式</h2>
+  <p class="filter">Vue.filetr(フィルター名、関数オブジェクト);</p>
+  <p></p>
+  <p class="filter">filters:{ フィルター名：関数オブジェクト }</p>
+  <p></p>
+  <p class="filter">{{ プロパティ | フィルター名 | フィルター名 }}</p>
+  <p></p>
+  <p class="filter">
+    属性にv-bindする場合も<br>
+    要素名 v-bind:属性名　= " プロパティ | フィルター名 | フィルター名"
+  </p>
+
+  <div id="app">
+    <p>{{ price | unit }}</p>
+    <p>{{ price | number_format | unit }}</p>
+  </div> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
