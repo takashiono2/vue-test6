@@ -9,17 +9,47 @@
 </head>
 <body>
   <div id="app">
+      <span class="num"></span>
+      <button class="btn">削除</button>
+  </div>
+  <!-- No.3 イベントハンドリング-Veuの場合-
+  <div id="app">
+    <template v-if="stock >1">
+      <span class="num">残り{{stock}}個</span>
+      <button class="btn" v-on:click="onDeleteItem">削除</button>
+    </template>
+    <template v-else>在庫なし</template>
+  </div> -->
+
+  <!-- No.3 イベントハンドリング-練習-
+  <div id="app">
+    <template v-if="stock == 1">はじめ
+      <p><span class="num">残り{{stock}}個</span></p>
+      <p><button class="btn" v-on:click="onDeleteItem">削除</button></p>
+    </template>
+    <template v-else-if="stock ==2 ">在庫があり
+      <p><span class="num">残り{{stock}}個</span></p>
+      <p><button class="btn" v-on:click="onDeleteItem">削除</button></p>
+    </template>
+    <template v-else>余り
+      <p><span class="num">残り{{stock}}個</span></p>
+      <p><button class="btn" v-on:click="onDeleteItem">削除</button></p>
+    </template>
+  </div> -->
+
+  <!-- No.2 算出プロパティ
+  <div id="app">
     <div v-show="show">
       <p>コンソールで、app.show=true から app.show=false そして、app.show=trueの戻す</p>
-      <p>now1: "{{ now1()}}"</p><!--メソッド-->
+      <p>now1: "{{ now1()}}"</p><!-メソッド->
       <p v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
         メソッド、は描画されるたびに更新キャッシュ値がとりだされる。
       </p>
-      <p>now2: "{{ now2 }}"</p><!--算出プロパティ-->
+      <p>now2: "{{ now2 }}"</p><-算出プロパティ->
       <p v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
         算出プロパティは、リアクティブデータdataが更新されると、キャッシュを捨てて再実行する。<br>つまり、時間が変わる</p>
       </div>
-  </div>
+  </div> -->
 
   <!-- No.1 複数のフィルターをつなげる
   <h2>フィルター</h2>
@@ -43,7 +73,7 @@
     <p>{{ price | unit }}</p>
     <p>{{ price | number_format | unit }}</p>
   </div> -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
   <script src="js/main.js"></script>
 </body>
 </html>
