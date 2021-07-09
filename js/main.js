@@ -1,24 +1,45 @@
-var app = document.querySelector('#app');
-var btn = app.querySelector('.btn');
-var num = app.querySelector('.num');
-
-var stock = 10;
-
-btn.addEventListener('click',()=>{
-  stock--;
-  updateStock();
+var app = new Vue({
+  el: '#app',
+  data:{
+    width: window.innerWidth,
+    height: window.innerHeight,
+  },
+  created: function(){
+    addEventListener('resize',this.resizeHandler);//（イベントのtype,通知を受け取るオブジェクトlistener）
+  },
+  beforeDestroy: function(){
+    removeEventListener('resize',this.resizeHandler);
+  },
+  methods:{
+    resizeHandler: function($event){//$eventはイベントを受け取るイベント変数名
+      this.width = $event.target.innerWidth;//e.target はイベントを発生させる原因となった要素をとってくる
+      this.height = $event.target.innerHeight;//ターゲットにはwindowオブジェクトが代入される。
+    }
+  }
 });
 
-function updateStock(){
-  if(stock>=1){
-    num.textContent = "在庫は残り"+stock+"個です"
-  }else{
-    // btn.classList.remove('btn');
-    app.removeChild(btn);
-    num.textContent =　"在庫がありません"
-  }
-}
-updateStock();
+// No.3 イベントハンドリング-算出プロパティ-
+// var app = document.querySelector('#app');
+// var btn = app.querySelector('.btn');
+// var num = app.querySelector('.num');
+
+// var stock = 10;
+
+// btn.addEventListener('click',()=>{
+//   stock--;
+//   updateStock();
+// });
+
+// function updateStock(){
+//   if(stock>=1){
+//     num.textContent = "在庫は残り"+stock+"個です"
+//   }else{
+//     // btn.classList.remove('btn');
+//     app.removeChild(btn);
+//     num.textContent =　"在庫がありません"
+//   }
+// }
+// updateStock();
 
 
 // No.3 イベントハンドリング-Veuの場合-
