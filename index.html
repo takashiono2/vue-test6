@@ -8,27 +8,36 @@
   <title>Vue.jsのツボとコツがゼッタイにわかる本の学習</title>
 </head>
 <body>
+  <!-- 2-9.カレンダーの範囲を制限する -->
+  <div id="app">
+    <p>ご希望到着日：{{arrival_date}}</p>
+    <input type="date"　v-model="arrival_date" v-bind:min="min_date">
+  </div>
+  
+  <!-- 2-9.カレンダーにバインディングする
   <div id="app">
     <p>ご希望到着日：{{arrival_date}}</p>
     <input type="date"　v-model="arrival_date">
-  </div>
-  <!-- No.3 イベントハンドリング-resizeのイベントハンドラ2-
+  </div> -->
+
+  <!-- 2-7.resizeのイベントハンドリング-
   <div id="app">
     <p>マウスのカーソル位置:{{point.x}} {{point.y}}</p>
   </div> -->
 
-  <!-- No.3 イベントハンドリング-resizeのイベントハンドラ-
+  <!-- 2-7.resizeのイベントハンドリング-
   <div id="app">
     ウィンドウの横幅：{{width}}<br />
     ウィンドウの高さ：{{height}}
   </div> -->
-  <!-- No.3 イベントハンドリング-算出プロパティ-
+
+  <!-- 2-7.クリックイベントの使用例(vue未使用)
   <div id="app">
       <span class="num"></span>
       <button class="btn">削除</button>
   </div> -->
 
-  <!-- No.3 イベントハンドリング-Veuの場合-
+  <!-- 2-7.クリックイベントの使用例
   <div id="app">
     <template v-if="stock >1">
       <span class="num">残り{{stock}}個</span>
@@ -37,7 +46,7 @@
     <template v-else>在庫なし</template>
   </div> -->
 
-  <!-- No.3 イベントハンドリング-練習-
+  <!-- 2-7.クリックイベントの使用例
   <div id="app">
     <template v-if="stock == 1">はじめ
       <p><span class="num">残り{{stock}}個</span></p>
@@ -53,7 +62,7 @@
     </template>
   </div> -->
 
-  <!-- No.2 算出プロパティ
+  <!--  2-5.フィルターを組み合わせて使用する
   <div id="app">
     <div v-show="show">
       <p>コンソールで、app.show=true から app.show=false そして、app.show=trueの戻す</p>
@@ -66,8 +75,7 @@
         算出プロパティは、リアクティブデータdataが更新されると、キャッシュを捨てて再実行する。<br>つまり、時間が変わる</p>
       </div>
   </div> -->
-
-  <!-- No.1 複数のフィルターをつなげる
+  <!--
   <h2>フィルター</h2>
   <ul>
     <li>フィルターは、テキストに出力する前に何らかの加工ができる</li>
@@ -85,6 +93,7 @@
     要素名 v-bind:属性名　= " プロパティ | フィルター名 | フィルター名"
   </p>
 
+  2-5.フィルターを組み合わせて使用する
   <div id="app">
     <p>{{ price | unit }}</p>
     <p>{{ price | number_format | unit }}</p>

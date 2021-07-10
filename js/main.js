@@ -1,23 +1,47 @@
-var app = new Vue({//arrival_date、//result、//slice(-2),function(dt),var m,var d
+// 2-9.カレンダーの範囲を制限する
+var app = new Vue({//arrival_date、min_date、result、slice(-2)、function(dt)、var m、var d、setDate()
   el: '#app',
-  data:{
-    arrival_date: null
+  data: {
+    arrival_date: null,
+    min_date: null
   },
-  created: function(){//初期値を設定する
-    this.arrival_date = this.formatDate(new Date());
+  created: function(){
+    var dt = new Date();
+    dt.setDate(dt.getDate()+1);
+    this.arrival_date = this.formatDate(dt);
+    this.min_date = this.arrival_date;
   },
-  methods: {
-    formatDate: function(dt){//日付をYYYY/MM/DDに変換
+  methods:{
+    formatDate: function(dt){
       var y = dt.getFullYear();
       var m = ('00'+(dt.getMonth()+1)).slice(-2);
-      var d = ('00'+dt.getDate()).slice(-2);
-      var result = y+"-"+m+"-"+d ;
-    return result
+      var d = ('00' + dt.getDate()).slice(-2);
+      result = y +'-'+ m +'-' + d;
+      return result;
+    }
   }
-}
 });
+// 2-9.カレンダーにバインディングする
+// var app = new Vue({
+//   el: '#app',
+//   data:{
+//     arrival_date: null
+//   },
+//   created: function(){//初期値を設定する
+//     this.arrival_date = this.formatDate(new Date());
+//   },
+//   methods: {
+//     formatDate: function(dt){//日付をYYYY/MM/DDに変換
+//       var y = dt.getFullYear();
+//       var m = ('00'+(dt.getMonth()+1)).slice(-2);
+//       var d = ('00'+dt.getDate()).slice(-2);
+//       var result = y+"-"+m+"-"+d ;
+//     return result
+//   }
+// }
+// });
 
-// No.3 イベントハンドリング-resizeのイベントハンドラ2
+// 2-7.resizeのイベントハンドリング-
 // var app = new Vue({ //mousemove,mousemoveHandler,clientX,clientY
 //   el: '#app',
 //   data: {
@@ -39,7 +63,8 @@ var app = new Vue({//arrival_date、//result、//slice(-2),function(dt),var m,va
 //     }
 //   }
 // });
-// No.3 イベントハンドリング-resizeのイベントハンドラ-
+
+// 2-7.イベントハンドリング-resizeのイベントハンドラ-
 // var app = new Vue({
 //   el: '#app',
 //   data:{
@@ -60,7 +85,7 @@ var app = new Vue({//arrival_date、//result、//slice(-2),function(dt),var m,va
 //   }
 // });
 
-// No.3 イベントハンドリング-算出プロパティ-
+// 2-7.クリックイベントの使用例(vue未使用)
 // var app = document.querySelector('#app');
 // var btn = app.querySelector('.btn');
 // var num = app.querySelector('.num');
@@ -84,7 +109,7 @@ var app = new Vue({//arrival_date、//result、//slice(-2),function(dt),var m,va
 // updateStock();
 
 
-// No.3 イベントハンドリング-Veuの場合-
+// 2-7.クリックイベントの使用例
 // var app = new Vue({
 //   el: '#app',
 //   data: {
@@ -97,7 +122,7 @@ var app = new Vue({//arrival_date、//result、//slice(-2),function(dt),var m,va
 //   }
 // });
 
-// No.3 イベントハンドリング-練習-
+// 2-7.クリックイベントの使用例
 // var app = new Vue({
 //   el: '#app',
 //   data: {
@@ -113,7 +138,7 @@ var app = new Vue({//arrival_date、//result、//slice(-2),function(dt),var m,va
 // }
 // });
 
-// No.2 算出プロパティ
+// 2-5.フィルターを組み合わせて使用する
 // var app = new Vue({
 //   el: '#app',
 //   data: {
@@ -133,7 +158,7 @@ var app = new Vue({//arrival_date、//result、//slice(-2),function(dt),var m,va
 //   }
 // });
 
-// No.1 複数のフィルターをつなげる
+// 2-5.フィルターを組み合わせて使用する
 // var app = new Vue({
 //   el: "#app",
 //   data: {
