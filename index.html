@@ -9,9 +9,19 @@
 </head>
 <body>
   <div id="app">
+    <p>ご希望到着日：{{arrival_date}}</p>
+    <input type="date"　v-model="arrival_date">
+  </div>
+  <!-- No.3 イベントハンドリング-resizeのイベントハンドラ2-
+  <div id="app">
+    <p>マウスのカーソル位置:{{point.x}} {{point.y}}</p>
+  </div> -->
+
+  <!-- No.3 イベントハンドリング-resizeのイベントハンドラ-
+  <div id="app">
     ウィンドウの横幅：{{width}}<br />
     ウィンドウの高さ：{{height}}
-  </div>
+  </div> -->
   <!-- No.3 イベントハンドリング-算出プロパティ-
   <div id="app">
       <span class="num"></span>
