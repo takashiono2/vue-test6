@@ -1,26 +1,55 @@
-// 2-9.カレンダーの範囲を制限する
-var app = new Vue({//arrival_date、min_date、result、slice(-2)、function(dt)、var m、var d、setDate()
+// 2-9.フォームコントロールの同期
+var app = new Vue({
   el: '#app',
-  data: {
-    arrival_date: null,
-    min_date: null
+  data:{
+    color: '#000000',
+    red: 0,
+    green: 0,
+    blue: 0
   },
-  created: function(){
-    var dt = new Date();
-    dt.setDate(dt.getDate()+1);
-    this.arrival_date = this.formatDate(dt);
-    this.min_date = this.arrival_date;
+  computed:{
+    colorElement: function(newRGB,oleRGB){
+      return [this.red,this.green,this.blue];
+    }
   },
-  methods:{
-    formatDate: function(dt){
-      var y = dt.getFullYear();
-      var m = ('00'+(dt.getMonth()+1)).slice(-2);
-      var d = ('00' + dt.getDate()).slice(-2);
-      result = y +'-'+ m +'-' + d;
-      return result;
+  watch:{
+    colorElement: function(newRGB,oleRGB){
+      var r = ('00'+newRGB[0].toString(16)).slice(-2);
+      var g = ('00'+newRGB[1].toString(16)).slice(-2);
+      var b = ('00'+newRGB[2].toString(16)).slice(-2);
+      this.color = '#'+r+g+b;
+    },
+    color: function(newColor,oldColor){
+      this.red = parseInt(newColor.substr(1,2),16);
+      this.green = parseInt(newColor.substr(3,2),16);
+      this.bule = parseInt(newColor.substr(5,2),16);
     }
   }
 });
+// 2-9.カレンダーの範囲を制限する
+// var app = new Vue({//arrival_date、min_date、result、slice(-2)、function(dt)、var m、var d、setDate()
+//   el: '#app',
+//   data: {
+//     arrival_date: null,
+//     min_date: null
+//   },
+//   created: function(){
+//     var dt = new Date();
+//     dt.setDate(dt.getDate()+1);
+//     this.arrival_date = this.formatDate(dt);
+//     this.min_date = this.arrival_date;
+//   },
+//   methods:{
+//     formatDate: function(dt){
+//       var y = dt.getFullYear();
+//       var m = ('00'+(dt.getMonth()+1)).slice(-2);
+//       var d = ('00' + dt.getDate()).slice(-2);
+//       result = y +'-'+ m +'-' + d;
+//       return result;
+//     }
+//   }
+// });
+
 // 2-9.カレンダーにバインディングする
 // var app = new Vue({
 //   el: '#app',
