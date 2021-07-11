@@ -1,31 +1,40 @@
-// 2-9.フォームコントロールの同期
+// 2-10.フェードイン・フェードアウト
 var app = new Vue({
   el: '#app',
   data:{
-    color: '#000000',
-    red: 0,
-    green: 0,
-    blue: 0
-  },
-  computed:{
-    colorElement: function(newRGB,oleRGB){
-      return [this.red,this.green,this.blue];
-    }
-  },
-  watch:{
-    colorElement: function(newRGB,oleRGB){
-      var r = ('00'+newRGB[0].toString(16)).slice(-2);
-      var g = ('00'+newRGB[1].toString(16)).slice(-2);
-      var b = ('00'+newRGB[2].toString(16)).slice(-2);
-      this.color = '#'+r+g+b;
-    },
-    color: function(newColor,oldColor){
-      this.red = parseInt(newColor.substr(1,2),16);
-      this.green = parseInt(newColor.substr(3,2),16);
-      this.bule = parseInt(newColor.substr(5,2),16);
-    }
+    show: true
   }
 });
+
+// 2-9.フォームコントロールの同期
+// var app = new Vue({
+//   el: '#app',
+//   data:{
+//     color: '#000000',
+//     red: 0,
+//     green: 0,
+//     blue: 0
+//   },
+//   computed:{
+//     colorElement: function(newRGB,oleRGB){
+//       return [this.red,this.green,this.blue];
+//     }
+//   },
+//   watch:{
+//     colorElement: function(newRGB,oleRGB){
+//       var r = ('00'+newRGB[0].toString(16)).slice(-2);
+//       var g = ('00'+newRGB[1].toString(16)).slice(-2);
+//       var b = ('00'+newRGB[2].toString(16)).slice(-2);
+//       this.color = '#'+r+g+b;
+//     },
+//     color: function(newColor,oldColor){
+//       this.red = parseInt(newColor.substr(1,2),16);
+//       this.green = parseInt(newColor.substr(3,2),16);
+//       this.bule = parseInt(newColor.substr(5,2),16);
+//     }
+//   }
+// });
+
 // 2-9.カレンダーの範囲を制限する
 // var app = new Vue({//arrival_date、min_date、result、slice(-2)、function(dt)、var m、var d、setDate()
 //   el: '#app',

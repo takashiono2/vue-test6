@@ -1,3 +1,16 @@
+/* 2-10.フェードイン・フェードアウト */
+/* v-enter,v-leave,trantition, */
+.v-enter, .v-leave-to{
+  opacity: 0;
+}
+
+.v-enter-to, .v-leave{ 
+  opacity: 1;
+}
+
+.v-enter-active, .v-leave-active{
+  transition: opacity .5s;
+}
 
 /* No.1 複数のフィルターをつなげる
 .filter{
