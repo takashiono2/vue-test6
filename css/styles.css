@@ -1,6 +1,27 @@
-/* 2-10.フェードイン・フェードアウト */
-/* v-enter,v-leave,trantition, */
-.v-enter, .v-leave-to{
+/* - 2-10.name属性値でエフェクトを分類する */
+.fade-enter-active, .fade-leave-active{
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+}
+
+.slideInLeft-enter-active, .slideInLeft-leave-active{
+  transition: opacity 0.5s, transform 0.7s;
+}
+
+.slideInLeft-enter, .slideInLeft-leave-to{
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.slideInLeft-enter-to, .slideInLeft-leave{
+  transform: translateX(0);
+}
+
+/* 2-10.フェードイン・フェードアウト
+ .v-enter, .v-leave-to{
   opacity: 0;
 }
 
@@ -10,7 +31,7 @@
 
 .v-enter-active, .v-leave-active{
   transition: opacity .5s;
-}
+} */
 
 /* No.1 複数のフィルターをつなげる
 .filter{

@@ -8,7 +8,25 @@
   <title>Vue.jsのツボとコツがゼッタイにわかる本の学習</title>
 </head>
 <body>
-  <!-- 2-10.フェードイン・フェードアウト -->
+  <!-- - 2-10.name属性値でエフェクトを分類する -->
+  <div id="app">
+    <button v-on:click="show = !show">表示を切り替える</button>
+    <transition name="fade">
+      <p v-if="show">
+        我輩は、猫である。名前は、まだない。<br>
+        どこで生まれたかとんと見当がつかぬ。<br>
+        何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+      </p>
+    </transition>
+    <transition name="slideInLeft">
+      <p v-if="show">
+        我輩は、猫である。名前は、まだない。<br>
+        どこで生まれたかとんと見当がつかぬ。<br>
+        何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+      </p>
+    </transition>
+  </div>
+  <!-- 2-10.フェードイン・フェードアウト
   <div id="app">
     <button v-on:click="show = !show">表示を切り替える</button>
     <transition>
@@ -18,7 +36,8 @@
         何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
       </p>
     </transition>
-  </div>
+  </div> -->
+
   <!-- 2-9.フォームコントロールの同期 -->
   <!-- <div id="app">
     <fieldset>
