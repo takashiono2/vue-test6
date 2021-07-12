@@ -1,4 +1,4 @@
-/* 3-2.オブジェクトの並び替え */
+/* 3-2.オブジェクトの並び替え
 var products = [
   {id:1,price:1280},
   {id:2,price:1980},
@@ -7,12 +7,11 @@ var products = [
   {id:5,price:1680},
   {id:6,price:1780}
 ];
-
 products.sort(function(a,b){
   return a.price - b.price;
 });
 
-console.log(products);
+console.log(products); */
 
 // 3-2.sort関数の使用例（関数定義を分離）
 // var array_price= [1280,1980,1580,980,1680,1780];
@@ -27,6 +26,82 @@ console.log(products);
 // array_price.sort(desc_order);
 
 // console.log(array_price);
+
+// 3-2.絞り込み機能をjsで実装
+
+// コンポーネントのルートノード
+var nodeApp = document.querySelector('#app');
+
+// チェックボックスのイベントハンドラを登録
+var nodeCheckbox = nodeApp.querySelectorAll('input[type="checkbox"]');
+nodeCheckbox[0].addEventListener('checked',onCheckChanged ,false);
+nodeCheckbox[1].addEventListener('checked',onCheckChanged ,false);
+
+// チェック状態変更イベントハンドラ
+function onCheckChanged(event) {
+
+  var nodeItems = nodeApp.querySelectorAll('.item') // 商品ノードのリスト
+  var nodeCount = nodeApp.querySelector('.count')   // 表示件数のノード
+  var count = nodeItems.length                // 表示件数
+
+  // 全ての商品ノードをいったん表示する
+  for (var i=0; i<nodeItems.length; i++) {
+    showNode(nodeItems[i]);
+  }
+
+  // セール対象のチェックがついている場合
+  if (nodeCheckbox[0].checked) {
+    // 全ての商品ノードを捜査
+    for (var i=0; i<nodeItems.length; i++) {
+      // セール対象の商品ではない場合
+      if (!isSaleItem(nodeCheckbox[i])) {
+        // この商品を非表示にする
+        hideNode(nodeItems[i]);
+        // 件数のカウントを減らす
+        count--;
+      }
+    }
+  }
+
+  送料無料のチェックがついている場合
+  if (nodeCheckbox[1].checked) {
+    // 全ての商品ノードを捜査
+    for (var i=0; i<nodeItems.length; i++) {
+      // 送料無料の商品ではない場合
+      if (!isSaleItem(nodeCheckbox[i])) {
+        // この商品を非表示にする
+        hideNode(nodeItems[i]);
+        // 件数のカウントを減らす
+        count--;
+      }
+    }
+  }
+  // 件数を更新
+  nodeCount.textContent = count +'件';
+}
+
+// セール商品かどうかを判定する関数
+function isSaleItem(nodeItem) {
+  var node = document.querySelect('.status');
+  return (node && node.textContent=='SALE');
+}
+
+// 送料無料かどうかを判定する関数
+function isDelvFreeItem(nodeItem) {
+  var node = document.querySelect('.shipping-fee');
+  return (node && node.textContent=='送料無料');
+}
+
+// ノードを非表示にする関数
+function hideNode(node) {
+  node.setAttribute('style','display:none;');
+}
+
+// ノードを表示する関数
+function showNode(node) {
+  node.removeAttribute('style');
+}
+
 
 // 2-10.フェードイン・フェードアウト、name属性値でエフェクトを分類する、カスタムトランジションクラスの使用例
 // var app = new Vue({
