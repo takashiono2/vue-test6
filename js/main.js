@@ -1,11 +1,40 @@
+/* 3-2.オブジェクトの並び替え */
+var products = [
+  {id:1,price:1280},
+  {id:2,price:1980},
+  {id:3,price:1580},
+  {id:4,price:980},
+  {id:5,price:1680},
+  {id:6,price:1780}
+];
+
+products.sort(function(a,b){
+  return a.price - b.price;
+});
+
+console.log(products);
+
+// 3-2.sort関数の使用例（関数定義を分離）
+// var array_price= [1280,1980,1580,980,1680,1780];
+
+// function desc_order(a,b){
+//   // if(a < b){return -1;}
+//   // if(a == b){return 1;}
+//   // return 0;
+//   return a-b;
+// }
+
+// array_price.sort(desc_order);
+
+// console.log(array_price);
 
 // 2-10.フェードイン・フェードアウト、name属性値でエフェクトを分類する、カスタムトランジションクラスの使用例
-var app = new Vue({
-  el: '#app',
-  data:{
-    show: true
-  }
-});
+// var app = new Vue({
+//   el: '#app',
+//   data:{
+//     show: true
+//   }
+// });
 
 // 2-9.フォームコントロールの同期
 // var app = new Vue({
