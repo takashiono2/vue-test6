@@ -34,14 +34,14 @@ var nodeApp = document.querySelector('#app');
 
 // チェックボックスのイベントハンドラを登録
 var nodeCheckbox = nodeApp.querySelectorAll('input[type="checkbox"]');
-nodeCheckbox[0].addEventListener('checked',onCheckChanged ,false);
-nodeCheckbox[1].addEventListener('checked',onCheckChanged ,false);
+nodeCheckbox[0].addEventListener('change',onCheckChanged ,false);
+nodeCheckbox[1].addEventListener('change',onCheckChanged ,false);
 
 // チェック状態変更イベントハンドラ
 function onCheckChanged(event) {
 
-  var nodeItems = nodeApp.querySelectorAll('.item') // 商品ノードのリスト
-  var nodeCount = nodeApp.querySelector('.count')   // 表示件数のノード
+  var nodeItems = nodeApp.querySelectorAll('.item'); // 商品ノードのリスト
+  var nodeCount = nodeApp.querySelector('.count');   // 表示件数のノード
   var count = nodeItems.length                // 表示件数
 
   // 全ての商品ノードをいったん表示する
@@ -54,7 +54,7 @@ function onCheckChanged(event) {
     // 全ての商品ノードを捜査
     for (var i=0; i<nodeItems.length; i++) {
       // セール対象の商品ではない場合
-      if (!isSaleItem(nodeCheckbox[i])) {
+      if (!isSaleItem(nodeItems[i])) {
         // この商品を非表示にする
         hideNode(nodeItems[i]);
         // 件数のカウントを減らす
@@ -62,13 +62,12 @@ function onCheckChanged(event) {
       }
     }
   }
-
-  送料無料のチェックがついている場合
+  // 送料無料のチェックがついている場合
   if (nodeCheckbox[1].checked) {
     // 全ての商品ノードを捜査
     for (var i=0; i<nodeItems.length; i++) {
       // 送料無料の商品ではない場合
-      if (!isSaleItem(nodeCheckbox[i])) {
+      if (!isDelvFreeItem(nodeItems[i])) {
         // この商品を非表示にする
         hideNode(nodeItems[i]);
         // 件数のカウントを減らす
@@ -82,14 +81,14 @@ function onCheckChanged(event) {
 
 // セール商品かどうかを判定する関数
 function isSaleItem(nodeItem) {
-  var node = document.querySelect('.status');
-  return (node && node.textContent=='SALE');
+  var node = nodeItem.querySelector('.status');
+  return (node && node.textContent == 'SALE');
 }
 
 // 送料無料かどうかを判定する関数
 function isDelvFreeItem(nodeItem) {
-  var node = document.querySelect('.shipping-fee');
-  return (node && node.textContent=='送料無料');
+  var node = nodeItem.querySelector('.shipping-fee');
+  return (node && node.textContent == '送料無料');
 }
 
 // ノードを非表示にする関数
