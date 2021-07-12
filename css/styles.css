@@ -1,4 +1,6 @@
-/* - 2-10.name属性値でエフェクトを分類する */
+/* - 2-10.カスタムトランジションクラスの使用例
+記述なし */
+/* - 2-10.name属性値でエフェクトを分類する
 .fade-enter-active, .fade-leave-active{
   transition: opacity .5s;
 }
@@ -18,7 +20,7 @@
 
 .slideInLeft-enter-to, .slideInLeft-leave{
   transform: translateX(0);
-}
+} */
 
 /* 2-10.フェードイン・フェードアウト
  .v-enter, .v-leave-to{
