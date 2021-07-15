@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">- 2-10.カスタムトランジションクラスの使用例 -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Vue.jsのツボとコツがゼッタイにわかる本の学習</title>
+</head>
+<body>
+  <!-- 3-2.オブジェクトの並び替え --> 
+  <!-- 3-2.sort関数の使用例（関数定義を分離） -->
+  <!-- 3-2.表示のモップアップ-->
+  <div id="app">
+    <div class="container">
+      <h1 class="pageTitle">商品一覧</h1>
+      <!--検索欄-->
+      <div class="search">
+        <div class="result">
+          検索結果 <span class="count">6件</span>
+        </div>
+        <div class="condition">
+          <div class="target">
+            <label><input type="checkbox"> セール対象</label>
+            <label><input type="checkbox"> 送料無料</label>
+          </div>
+          <div class="sort">
+            <label for="sort">並び替え</label>
+            <select id="sort" class="sorting">
+              <option value="1">標準</option>
+              <option value="2">価格が安い順</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!--商品一覧-->
+      <div class="list">
+        <div class="item">
+          <figure class="image">
+            <div class="status">SALE</div>
+            <img src="images/01.jpg" alt="">
+            <figcaption>Michael<br>スマホケース</figcaption>
+          </figure>
+          <div class="detail">
+            <div class="price"><span>1,580</span>円（税込）</div>
+            <div class="shipping-fee none">送料無料</div>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="image">
+            <div class="status">SALE</div>
+            <img src="images/02.jpg" alt="">
+            <figcaption>Raphael<br>スマホケース</figcaption>
+          </figure>
+          <div class="detail">
+            <div class="price"><span>1,580</span>円（税込）</div>
+            <div class="shipping-fee none">送料無料</div>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="image">
+            <div class="status">SALE</div>
+            <img src="images/03.jpg" alt="">
+            <figcaption>Gabriel<br>スマホケース</figcaption>
+          </figure>
+          <div class="detail">
+            <div class="price"><span>1,580</span>円（税込）</div>
+            <div class="shipping-fee">+送料240円</div>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="image">
+            <div class="status">SALE</div>
+            <img src="images/04.jpg" alt="">
+            <figcaption>Uriel<br>スマホケース</figcaption>
+          </figure>
+          <div class="detail">
+            <div class="price"><span>980</span>円（税込）</div>
+            <div class="shipping-fee none">送料無料</div>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="image">
+            <img src="images/05.jpg" alt="">
+            <figcaption>Ariel<br>スマホケース</figcaption>
+          </figure>
+          <div class="detail">
+            <div class="price"><span>980</span>円（税込）</div>
+            <div class="shipping-fee none">送料無料</div>
+          </div>
+        </div>
+        <div class="item">
+          <figure class="image">
+            <img src="images/06.jpg" alt="">
+            <figcaption>Azrael<br>スマホケース</figcaption>
+          </figure>
+          <div class="detail">
+            <div class="price"><span>1,580</span>円（税込）</div>
+            <div class="shipping-fee none">送料無料</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- - 2-10.カスタムトランジションクラスの使用例
+  <div id="app">
+    <button v-on:click="show = !show">表示を切り替える</button>
+    <transition name="zoom"
+      enter-active-class="animated zoomIn"
+      leave-active-class="animated zoomOut">
+      <p v-if="show">
+        我輩は、猫である。名前は、まだない。<br>
+        どこで生まれたかとんと見当がつかぬ。<br>
+        何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+      </p>
+    </transition>
+  </div> -->
+
+  <!-- - 2-10.name属性値でエフェクトを分類する
+  <div id="app">
+    <button v-on:click="show = !show">表示を切り替える</button>
+    <transition name="fade">
+      <p v-if="show">
+        我輩は、猫である。名前は、まだない。<br>
+        どこで生まれたかとんと見当がつかぬ。<br>
+        何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+      </p>
+    </transition>
+    <transition name="slideInLeft">
+      <p v-if="show">
+        我輩は、猫である。名前は、まだない。<br>
+        どこで生まれたかとんと見当がつかぬ。<br>
+        何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+      </p>
+    </transition>
+  </div> -->
+  <!-- 2-10.フェードイン・フェードアウト
+  <div id="app">
+    <button v-on:click="show = !show">表示を切り替える</button>
+    <transition>
+      <p v-if="show">
+        我輩は、猫である。名前は、まだない。<br>
+        どこで生まれたかとんと見当がつかぬ。<br>
+        何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+      </p>
+    </transition>
+  </div> -->
+
+  <!-- 2-9.フォームコントロールの同期 -->
+  <!-- <div id="app">
+    <fieldset>
+      <legend>あなたの好きな色は？</legend> 
+        <input type="color" v-model="color">
+        色{{color}}<br>
+          <input type="range" v-model.number="red" min="0" max="255"><br>
+            赤{{red}}<br>
+          <input type="range" v-model.number="green" min="0" max="255"><br>
+            緑{{green}}<br>
+          <input type="range" v-model.number="blue" min="0" max="255"><br> 
+            青{{blue}}
+    </fieldset>
+  </div> -->
+
+  <!-- 2-9.カレンダーの範囲を制限する
+  <div id="app">
+    <p>ご希望到着日：{{arrival_date}}</p>
+    <input type="date"　v-model="arrival_date" v-bind:min="min_date">
+  </div> -->
+  
+  <!-- 2-9.カレンダーにバインディングする
+  <div id="app">
+    <p>ご希望到着日：{{arrival_date}}</p>
+    <input type="date"　v-model="arrival_date">
+  </div> -->
+
+  <!-- 2-7.resizeのイベントハンドリング-
+  <div id="app">
+    <p>マウスのカーソル位置:{{point.x}} {{point.y}}</p>
+  </div> -->
+
+  <!-- 2-7.resizeのイベントハンドリング-
+  <div id="app">
+    ウィンドウの横幅：{{width}}<br />
+    ウィンドウの高さ：{{height}}
+  </div> -->
+
+  <!-- 2-7.クリックイベントの使用例(vue未使用)
+  <div id="app">
+      <span class="num"></span>
+      <button class="btn">削除</button>
+  </div> -->
+
+  <!-- 2-7.クリックイベントの使用例
+  <div id="app">
+    <template v-if="stock >1">
+      <span class="num">残り{{stock}}個</span>
+      <button class="btn" v-on:click="onDeleteItem">削除</button>
+    </template>
+    <template v-else>在庫なし</template>
+  </div> -->
+
+  <!-- 2-7.クリックイベントの使用例
+  <div id="app">
+    <template v-if="stock == 1">はじめ
+      <p><span class="num">残り{{stock}}個</span></p>
+      <p><button class="btn" v-on:click="onDeleteItem">削除</button></p>
+    </template>
+    <template v-else-if="stock ==2 ">在庫があり
+      <p><span class="num">残り{{stock}}個</span></p>
+      <p><button class="btn" v-on:click="onDeleteItem">削除</button></p>
+    </template>
+    <template v-else>余り
+      <p><span class="num">残り{{stock}}個</span></p>
+      <p><button class="btn" v-on:click="onDeleteItem">削除</button></p>
+    </template>
+  </div> -->
+
+  <!--  2-5.フィルターを組み合わせて使用する
+  <div id="app">
+    <div v-show="show">
+      <p>コンソールで、app.show=true から app.show=false そして、app.show=trueの戻す</p>
+      <p>now1: "{{ now1()}}"</p><!-メソッド->
+      <p v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+        メソッド、は描画されるたびに更新キャッシュ値がとりだされる。
+      </p>
+      <p>now2: "{{ now2 }}"</p><-算出プロパティ->
+      <p v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+        算出プロパティは、リアクティブデータdataが更新されると、キャッシュを捨てて再実行する。<br>つまり、時間が変わる</p>
+      </div>
+  </div> -->
+  <!--
+  <h2>フィルター</h2>
+  <ul>
+    <li>フィルターは、テキストに出力する前に何らかの加工ができる</li>
+    <li>（例）例えば、1,280円のように、1280を代入するだけで、カンマで区切ったり、小数点以下を丸めたりできる</li>
+  </ul>
+  <h2>書式</h2>
+  <p class="filter">Vue.filetr(フィルター名、関数オブジェクト);</p>
+  <p></p>
+  <p class="filter">filters:{ フィルター名：関数オブジェクト }</p>
+  <p></p>
+  <p class="filter">{{ プロパティ | フィルター名 | フィルター名 }}</p>
+  <p></p>
+  <p class="filter">
+    属性にv-bindする場合も<br>
+    要素名 v-bind:属性名　= " プロパティ | フィルター名 | フィルター名"
+  </p>
+
+  2-5.フィルターを組み合わせて使用する
+  <div id="app">
+    <p>{{ price | unit }}</p>
+    <p>{{ price | number_format | unit }}</p>
+  </div> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
