@@ -82,17 +82,17 @@ function number_format(val) {
   return val.toLocaleString();
 }
 
-// // 日付の差を求める関数
-// function getDateDiff(dateString1, dateString2) {
-//   // 日付を表す文字列から日付オブジェクトを生成
-//   var date1 = new Date(dateString1);
-//   var date2 = new Date(dateString2);
-//   // 2つの日付の差分（ミリ秒）を計算
-//   var msDiff  = date1.getTime() - date2.getTime();
-//   // 求めた差分（ミリ秒）を日付に変換
-//   // 差分÷(1000ミリ秒×60秒×60分×24時間)
-//   return Math.ceil(msDiff / (1000 * 60 * 60 *24));
-// }
+// 日付の差を求める関数
+function getDateDiff(dateString1, dateString2) {
+  // 日付を表す文字列から日付オブジェクトを生成
+  var date1 = ;
+  var date2 = ;
+  // 2つの日付の差分（ミリ秒）を計算
+  var msDiff  =  - ;
+  // 求めた差分（ミリ秒）を日付に変換
+  // 差分÷(1000ミリ秒×60秒×60分×24時間)
+  ;
+}
 
 // 再計算した基本料金（税込）を返す関数
 function taxedBasePrice() {
@@ -102,20 +102,20 @@ function taxedBasePrice() {
   var delivery_date = app.querySelector('#delivery_date');
   // 納期までの残り日数を計算
   var dateDiff = getDateDiff(delivery_date.value, (new Date()).toLocaleString());
-  // 割増料金を求める
-  if (21 <= dateDiff && dateDiff < 30) {
+  // 割増料金を求める(21以上30未満)
+  if (　　　　dateDiff && dateDiff 　　　　) {
     // 納期が1ヵ月未満の場合
     addPrice = 5000;
   }
-  else if (14 <= dateDiff && dateDiff < 21) {
+  else if (　　　dateDiff && dateDiff 　　) {
     // 納期が3週間未満の場合
     addPrice = 10000;
   }
-  else if (7 <= dateDiff && dateDiff < 14) {
+  else if (　　　dateDiff && dateDiff　　) {
     // 納期が2週間未満の場合
     addPrice = 15000;
   }
-  else if (3 < dateDiff && dateDiff < 7) {
+  else if (　　　dateDiff && dateDiff　　　) {
     // 納期が1週間未満の場合
     addPrice = 20000;
   }
