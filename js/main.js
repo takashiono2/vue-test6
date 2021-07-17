@@ -72,9 +72,9 @@ function tommorow() {
   return formatDate(dt);
 }
 
-// 税抜き金額を税込み金額に変換する関数
+// 税抜き金額（切り捨て）を税込み金額に変換する関数 untaxed（価格）、taxRate（税率）
 function incTax(untaxed) {
-  return Math.floor(untaxed * (1 + taxRate));
+  return ;
 }
 
 // 数値を通貨書式「#,###,###」に変換する関数
@@ -82,16 +82,16 @@ function number_format(val) {
   return val.toLocaleString();
 }
 
-// 日付の差を求める関数
-function getDateDiff(dateString1, dateString2) {
+// 日付の差（dateString1、dateString2）を求める関数
+function　getDateDiff（dateString1、dateString2）{
   // 日付を表す文字列から日付オブジェクトを生成
-  var date1 = ;
-  var date2 = ;
+  var date1 = new Date(dateString1);
+  var date2 = new Date(dateString2);
   // 2つの日付の差分（ミリ秒）を計算
-  var msDiff  =  - ;
+  var msDiff =
   // 求めた差分（ミリ秒）を日付に変換
   // 差分÷(1000ミリ秒×60秒×60分×24時間)
-  ;
+  return Math.ceil( msDiff / (1000*60*60*24) );
 }
 
 // 再計算した基本料金（税込）を返す関数
@@ -101,21 +101,21 @@ function taxedBasePrice() {
   // フォームコントロールを取得（DVD仕上がり予定日）
   var delivery_date = app.querySelector('#delivery_date');
   // 納期までの残り日数を計算
-  var dateDiff = getDateDiff(delivery_date.value, (new Date()).toLocaleString());
+  var dateDiff = (delivery_date.value,                     );
   // 割増料金を求める(21以上30未満)
-  if (　　　　dateDiff && dateDiff 　　　　) {
+  if ( 21 <= dateDiff && dateDiff < 30 ) {
     // 納期が1ヵ月未満の場合
     addPrice = 5000;
   }
-  else if (　　　dateDiff && dateDiff 　　) {
+  else if ( 14 <= dateDiff && dateDiff < 21 ) {
     // 納期が3週間未満の場合
     addPrice = 10000;
   }
-  else if (　　　dateDiff && dateDiff　　) {
+  else if ( 7 < dateDiff && dateDiff <=　14 ) {
     // 納期が2週間未満の場合
     addPrice = 15000;
   }
-  else if (　　　dateDiff && dateDiff　　　) {
+  else if ( 3 < dateDiff && dateDiff <= 7) {
     // 納期が1週間未満の場合
     addPrice = 20000;
   }
@@ -167,10 +167,10 @@ function updateForm() {
   // 金額を再計算
   var basePrice  = taxedBasePrice();     // 基本料金（税込）
   var optPrice   = taxedOptPrice();      // オプション料金（税込）
-  var totalPrice =; // 合計（税込）
+  var totalPrice = basePrice + optPrice; // 合計（税込）
 
   // 表示を更新
-    = number_format(basePrice);   // 基本料金（税込）
-     = number_format(optPrice);    // オプション料金（税込）
-   = number_format(totalPrice);  // 合計（税込）
+  sum_base.value = number_format(basePrice);   // 基本料金（税込）
+  sum_opt.value = number_format(optPrice);    // オプション料金（税込）
+  sum_total.value = number_format(totalPrice);  // 合計（税込）
 }
