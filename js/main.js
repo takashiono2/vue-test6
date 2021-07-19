@@ -1,16 +1,32 @@
-Vue.component('show-hellow',{
-              template:`<p>{{message}}</p>`,
-              data: function(){
-                return {
-                  message: 'Hello Vue!'
-                }
-              },
-              methods: {},
-              computed: {},
-              watch: {},
-              filters: {},
-              created: function(){}
-              });
+// リスト4
+Vue.component('my-product',{
+  template:`
+  <div>
+    <span>{{name}}</span>:<span>{{price}}円</span>
+  </div>`,
+  data: function(){
+    return {
+      name: 'スマホゲーム',
+      price: 980
+    }
+  }
+})
+
+
+// リスト3
+// Vue.component('show-hellow',{
+//               template:`<p>{{message}}</p>`,
+//               data: function(){
+//                 return {
+//                   message: 'Hello Vue!'
+//                 }
+//               },
+//               methods: {},
+//               computed: {},
+//               watch: {},
+//               filters: {},
+//               created: function(){}
+//               });
 
 var app = new Vue({
   el: '#app'
