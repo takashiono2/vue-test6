@@ -1,19 +1,27 @@
-// リスト4
-Vue.component('my-product',{
-  template:`
-  <div>
-    <span>{{name}}</span>:<span>{{price}}円</span>
-  </div>`,
-  data: function(){
-    return {
-      name: 'スマホゲーム',
-      price: 980
-    }
+
+//  6.リスト7
+var app = new Vue({
+  el: '#app',
+  components: {
+    'my-component': myComponent
   }
-})
+});
+//  6.リスト4
+// Vue.component('my-product',{
+//   template:`
+//   <div>
+//     <span>{{name}}</span>:<span>{{price}}円</span>
+//   </div>`,
+//   data: function(){
+//     return {
+//       name: 'スマホゲーム',
+//       price: 980
+//     }
+//   }
+// })
 
 
-// リスト3
+//  6.リスト3
 // Vue.component('show-hellow',{
 //               template:`<p>{{message}}</p>`,
 //               data: function(){
@@ -28,8 +36,8 @@ Vue.component('my-product',{
 //               created: function(){}
 //               });
 
-var app = new Vue({
-  el: '#app'
+// var app = new Vue({
+//   el: '#app'
   // data: {
   //   // 商品リスト
   //   products: [
@@ -40,5 +48,5 @@ var app = new Vue({
   //     { id: 5, name: 'Ariel<br>スマホケース', price: 980, image: 'images/05.jpg', delv: 0, isSale: false },
   //     { id: 6, name: 'Azrael<br>スマホケース', price: 1580, image: 'images/06.jpg', delv: 0, isSale: false },
   //   ]
-  // }
-});
+//   // }
+// });
