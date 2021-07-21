@@ -5,10 +5,20 @@
   <title>商品一覧</title>
 </head>
 <body>
+  <!-- 6.リスト16リスト20 -->
+    <div id="app">
+      <my-product @child-click="priceDown" v-bind:price="price"></my-product>
+    </div>
+
+  <!-- 6.リスト10 -->
+  <!-- <div id="app">
+    <my-product name="スマホケースA" price="980"></my-product>
+    <my-product name="スマホケースB" price="1580"></my-product>
+  </div> -->
   <!-- 6.リスト7 -->
-  <div id="app">
+  <!-- <div id="app">
     <my-component></my-component>
-  </div>
+  </div> -->
 
   <!-- 6.リスト4
   <div id="app">
@@ -21,7 +31,8 @@
   <show-hellow></show-hellow>
 </div> -->
 <script src="https://jp.vuejs.org/js/vue.js"></script>
-<script src="js/my-component.js"></script>
+<!-- <script src="js/my-component.js"></script> -->
+<script src="js/my-product.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

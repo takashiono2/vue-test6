@@ -1,11 +1,25 @@
-
-//  6.リスト7
+// 6.リスト10リスト20
 var app = new Vue({
   el: '#app',
-  components: {
-    'my-component': myComponent
+  data: {
+    price: 980
+  },
+  methods: {
+    priceDown: function(discount){
+      if(discount == undefined) discount = 100;
+      this.price -= discount;
+    }
   }
 });
+//  6.リスト7
+// var app = new Vue({
+//   el: '#app',
+//   components: {
+//     'my-component': myComponent
+//   }
+
+
+// });
 //  6.リスト4
 // Vue.component('my-product',{
 //   template:`
