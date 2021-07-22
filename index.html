@@ -5,10 +5,15 @@
   <title>商品一覧</title>
 </head>
 <body>
+<!-- 6.リスト22 -->
+<div id="app">
+  <my-product v-on:click.native="priceDown" v-bind:price="price" ></my-product>
+</div>
+
   <!-- 6.リスト16リスト20 -->
-    <div id="app">
-      <my-product @child-click="priceDown" v-bind:price="price"></my-product>
-    </div>
+    <!-- <div id="app">
+      <my-product v-on:child-click="priceDown" v-bind:price="price" ></my-product>
+    </div> -->
 
   <!-- 6.リスト10 -->
   <!-- <div id="app">

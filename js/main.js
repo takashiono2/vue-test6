@@ -1,17 +1,37 @@
-// 6.リスト10リスト20
+// 6.リスト24
 var app = new Vue({
   el: '#app',
   data: {
     price: 980
   },
   methods: {
-    priceDown: function(discount){
-      if(discount == undefined) discount = 100;
-      this.price -= discount;
-    }
+    priceDown: function(){
+      var discount = 0;
+      if(this.price - 50 < 500){
+        discount = this.price - 500;
+      } else {
+        discount = 50;
+      }
+        this.price -= discount;
+      }
   }
 });
-//  6.リスト7
+
+// 6.リスト10リスト20
+// var app = new Vue({
+//   el: '#app',
+//   data: {
+//     price: 980
+//   },
+//   methods: {
+//     priceDown: function(discount){
+//       if(discount == undefined) discount = 100;
+//       this.price -= discount;
+//     }
+//   }
+// });
+
+// 6.リスト7リスト20
 // var app = new Vue({
 //   el: '#app',
 //   components: {
