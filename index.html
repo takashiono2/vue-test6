@@ -3,12 +3,51 @@
 <head>
   <meta charset="utf-8">
   <title>商品一覧</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="components/product-header.css">
+  <link rel="stylesheet" href="components/product.css">
+  <link rel="stylesheet" href="components/product-list.css">
 </head>
 <body>
-<!-- 6.リスト22 -->
+<!-- 6-2.リスト2 -->
 <div id="app">
-  <my-product v-on:click.native="priceDown" v-bind:price="price" ></my-product>
+  <product-list　　　　></product-list>
 </div>
+<script src="https://jp.vuejs.org/js/vue.js"></script>
+<script src="common/filter.js"></script>
+<script src="components/product-header.js"></script>
+<script src="components/product.js"></script>
+<script src="components/product-list.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+<!-- 6.リスト28 -->
+<!-- <div id="app">
+  <table border="1">
+  <tbody>
+    <tr is="my-row" v-for="product in products" 
+                v-bind="product" 
+                v-bind:key="product.id">
+  </tr>
+  </tbody>
+  </table>
+</div> -->
+
+<!-- 6.リスト27 -->
+<!-- <div id="app">
+  <ul>
+    <my-product v-for="product in products" 
+                v-bind="product" 
+                v-bind:key="product.id">
+    </my-product>
+  </ul>
+</div> -->
+
+<!-- 6.リスト22 -->
+<!-- <div id="app">
+  <my-product v-on:click.native="priceDown" v-bind:price="price" ></my-product>
+</div> -->
 
   <!-- 6.リスト16リスト20 -->
     <!-- <div id="app">
@@ -35,12 +74,12 @@
   <p>ここにコンポーネントが入ります</p>
   <show-hellow></show-hellow>
 </div> -->
-<script src="https://jp.vuejs.org/js/vue.js"></script>
-<!-- <script src="js/my-component.js"></script> -->
+<!-- <script src="https://jp.vuejs.org/js/vue.js"></script>
+<script src="js/my-component.js"></script>
 <script src="js/my-product.js"></script>
 <script src="js/main.js"></script>
 </body>
-</html>
+</html> -->
 
 <!-- <!DOCTYPE html>
 <html lang="ja">

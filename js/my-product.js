@@ -1,8 +1,18 @@
-//6.リスト22
-Vue.component('my-product',{
-  template:'<button>現在の価格{{price}}円</button>',
-  props:['price']
+//6.リスト28
+Vue.component('my-row',{
+  template:`
+  <tr><td>{{id}}</td><td>{{name}}</td><td>{{price}}(円)</td></tr>
+  `,
+  props:['id','name','price']
 });
+
+//6.リスト22
+// Vue.component('my-product',{
+//   template:`
+//   <li>{{id}}{{name}}{{price}}(円)</li>
+//   `,
+//   props:['id','name','price']
+// });
 
 //  6.リスト16リスト19リスト20
 // Vue.component(`my-product`,{
