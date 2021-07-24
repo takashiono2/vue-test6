@@ -20,8 +20,8 @@ Vue.component('product-list', {//検索商品数、検索条件、並び順の�
     </div>
   </div>`,
   components: {
-    'product-header': ,　　　　　　//コンポーネント名:変数名
-    'product': 　　　　　　　　//コンポーネント名：変数名
+    'product-header': productHeader,　　　　　　//コンポーネント名:変数名
+    'product': product　　　　　　　　//コンポーネント名：変数名
   },
   props: ['products'],
   data: function() {
